@@ -443,7 +443,7 @@ export class NatsConnectionImpl implements NatsConnection {
 
       const p = Promise.race([r.timer, r.deferred]);
       p.catch(() => {
-        r.cancel();
+        r.cleanup();
       });
       return p;
     }

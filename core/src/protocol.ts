@@ -1220,7 +1220,7 @@ export class ProtocolHandler implements Dispatcher<ParserEvent>, Replier {
     }
     const p = Promise.race([r.timer, r.deferred]);
     p.catch(() => {
-      r.cancel();
+      r.cleanup();
     });
     return p;
   }
